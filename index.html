@@ -25,7 +25,8 @@
                 Te voy a amar hasta mi último suspiro, porque si alguien merece todo lo bueno, todo el amor, todo el
                 mundo entero y más… eres tú.
                 <br><br>
-                Aquí voy a estar siempre, para ti, para cuidarte, para abrazarte incluso a la distancia,
+                FLELIZ DIA MI PRINCESA HERMOSA!!!!aquí voy a estar siempre, para ti, para cuidarte, para abrazarte
+                incluso a la distancia,
                 mi niñita preciosa, mi razón favorita para sonreír<br><br>
             </p>
         </div>
@@ -40,10 +41,84 @@
     <div class="arrow">&#x25BC;</div>
 
     <section class="images">
-        <img src="logo.webp" alt="foto 1">
+        <img src="ho1.jpeg" alt="foto 1">
         <div class="heart-divider">❤</div>
-        <img src="prf.jpg" alt="foto 2">
+        <img src="shec.jpeg" alt="foto 2">
     </section>
+    <section class="music-player">
+        <div class="player-card">
+            <img class="cover" src="IM.jpg" alt="Love Cover">
+            <div class="song-info">
+                <strong>Sweet Love</strong>
+                <p>wave to earth</p>
+            </div>
+            <audio id="audio" src="Myles_Smith_-_Sweet_Love_@BaseNaija.mp3"></audio>
+            <input type="range" id="seekbar" value="0" step="1">
+            <div class="controls">
+                <span id="current">0:00</span>
+                <div class="buttons">
+                    <button class="btn"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            fill="currentColor" viewBox="0 0 16 16">
+                            <path
+                                d="M0 4a2 2 0 0 1 2-2h1v12H2a2 2 0 0 1-2-2V4zm4.5 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5V4zm3.5.5v7l6-3.5-6-3.5z" />
+                        </svg></button>
+                    <button id="playPause" class="btn"><svg id="play-icon" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" fill="currentColor" viewBox="0 0 16 16">
+                            <path
+                                d="M6.79 5.093A.5.5 0 0 1 7.5 5.5v5a.5.5 0 0 1-.79.407L3.5 8.972l-3.21 1.935A.5.5 0 0 1 0 10.5v-5a.5.5 0 0 1 .79-.407L3.5 7.028l3.29-1.935z" />
+                        </svg></button>
+                    <button class="btn"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            fill="currentColor" viewBox="0 0 16 16">
+                            <path
+                                d="M15 4a2 2 0 0 0-2-2h-1v12h1a2 2 0 0 0 2-2V4zm-4.5 0a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V4z" />
+                        </svg></button>
+                </div>
+                <span id="duration">0:00</span>
+            </div>
+        </div>
+
+    </section>
+
+    <script>
+        const audio = document.getElementById('audio');
+        const seekbar = document.getElementById('seekbar');
+        const current = document.getElementById('current');
+        const duration = document.getElementById('duration');
+        const playPause = document.getElementById('playPause');
+        const playIcon = document.getElementById('play-icon');
+
+        function formatTime(sec) {
+            const minutes = Math.floor(sec / 60);
+            const seconds = Math.floor(sec % 60).toString().padStart(2, '0');
+            return `${minutes}:${seconds}`;
+        }
+
+        audio.addEventListener('loadedmetadata', () => {
+            seekbar.max = Math.floor(audio.duration);
+            duration.textContent = formatTime(audio.duration);
+        });
+
+        audio.addEventListener('timeupdate', () => {
+            seekbar.value = Math.floor(audio.currentTime);
+            current.textContent = formatTime(audio.currentTime);
+        });
+
+        seekbar.addEventListener('input', () => {
+            audio.currentTime = seekbar.value;
+        });
+
+        playPause.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                playPause.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16"><path d="M5.5 3.5A.5.5 0 0 1 6 4v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5zM10.5 3.5A.5.5 0 0 1 11 4v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5z"/></svg>';
+            } else {
+                audio.pause();
+                playPause.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16"><path d="M6.79 5.093A.5.5 0 0 1 7.5 5.5v5a.5.5 0 0 1-.79.407L3.5 8.972l-3.21 1.935A.5.5 0 0 1 0 10.5v-5a.5.5 0 0 1 .79-.407L3.5 7.028l3.29-1.935z"/></svg>';
+            }
+        });
+    </script>
+
+
 
 </body>
 

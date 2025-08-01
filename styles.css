@@ -13,7 +13,7 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
-    background-color: white;
+    background-color: rgba(255, 212, 212, 0.582);
     color: #333;
     padding: 2rem;
     display: flex;
@@ -127,32 +127,7 @@ header {
     font-size: 1.2rem;
 }
 
-.music-box {
-    border: 1px solid #ddd;
-    border-radius: 20px;
-    padding: 1rem;
-    max-width: 800px;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-}
 
-.lyrics {
-    flex: 1;
-    min-width: 200px;
-}
-
-.lyrics h4 {
-    font-weight: normal;
-}
-
-.lyrics p {
-    margin-top: 0.5rem;
-    font-size: 0.85rem;
-    color: #444;
-}
 
 .cherry-pic {
     max-width: 120px;
@@ -166,6 +141,97 @@ header {
     max-width: 800px;
     font-size: 0.8rem;
     color: #888;
+}
+
+.music-player {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    width: 100%;
+}
+
+.player-card {
+    background: #f9f6f2;
+    border-radius: 20px;
+    padding: 1.5rem;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.cover {
+    width: 100px;
+    height: 100px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin: 0 auto 1rem;
+}
+
+.song-info strong {
+    font-size: 1.2rem;
+    color: #222;
+}
+
+.song-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+#seekbar {
+    width: 100%;
+    margin: 1rem 0 0.5rem;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 5px;
+    border-radius: 5px;
+    background: #ddd;
+    outline: none;
+}
+
+#seekbar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: #aa6c74;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#seekbar::-moz-range-thumb {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: #aa6c74;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #444;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: #222;
+    display: flex;
+    align-items: center;
 }
 
 @media (max-width: 768px) {
